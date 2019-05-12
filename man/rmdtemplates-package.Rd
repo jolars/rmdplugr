@@ -4,9 +4,18 @@
 \name{rmdtemplates-package}
 \alias{rmdtemplates}
 \alias{rmdtemplates-package}
-\title{rmdtemplates: What the Package Does (Title Case)}
+\title{rmdtemplates: Augmented Rmarkdown Templates}
 \description{
-More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+This package provides templates and wrappers built around the
+    default Rmarkdown pdf templates from 'rmarkdown' and 'bookdown' and the
+    latex template from 'pandoc'. The goal is to restore most of the
+    style modifications introduced by these default templates, such as
+    smaller margins, paragraph spacing, and compact titles, and also
+    to enable affiliations through the latex 'auhthblk' package and
+    marginal material using either 'scrlayer-page' or 'fancyhdr'.
+}
+\author{
+\strong{Maintainer}: Johan Larsson \email{mail@larssonjohan.com} (0000-0002-4029-5945)
+
 }
 \keyword{internal}
