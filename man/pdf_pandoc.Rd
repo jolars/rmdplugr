@@ -5,7 +5,7 @@
 \title{Rmarkdown template for an augmented version of the basic pandoc latex
 template}
 \usage{
-pdf_pandoc(..., number_sections = TRUE,
+pdf_pandoc(..., template = NULL, number_sections = TRUE,
   md_extensions = c("-autolink_bare_uris"), csl = NULL,
   colorlinks = TRUE)
 }

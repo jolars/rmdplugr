@@ -18,6 +18,7 @@
 #'                  edit = FALSE)
 #' @export
 pdf_pandoc <- function(...,
+                       template = NULL,
                        number_sections = TRUE,
                        md_extensions = c("-autolink_bare_uris"),
                        csl = NULL,
@@ -26,8 +27,7 @@ pdf_pandoc <- function(...,
   pdf_document_format(...,
                       number_sections = number_sections,
                       md_extensions = md_extensions,
-                      format = "pdf_pandoc",
-                      template = "default.latex",
+                      template = template,
                       csl = NULL,
                       colorlinks = TRUE)
 }

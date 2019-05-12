@@ -24,3 +24,5 @@ general_intermediates_generator <-
 rmarkdown_system_file <-
   utils::getFromNamespace("rmarkdown_system_file", "rmarkdown")
 
+as_tmpfile <-
+  utils::getFromNamespace("as_tmpfile", "rmarkdown")

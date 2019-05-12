@@ -25,22 +25,38 @@ inherit_pdf_document <- function(...) {
 }
 
 pdf_document_format <- function(...,
+                                use_marginals = TRUE,
+                                use_author_block = TRUE,
                                 extra_dependencies = NULL,
-                                format,
-                                template,
+                                template = NULL,
                                 csl = NULL,
                                 colorlinks = TRUE)
 {
+  # get template to modify
+  if (is.null(template))
+    template <- system2("pandoc", args = c("-D latex"), stdout = TRUE)
+  else
+    template <- readLines(template)
+
+  if (use_author_block)
+    template <- add_author_block(template)
+
+  if (use_marginals)
+    template <- add_marginals(template)
+
+  # write augmented template to temporary file
+  tmpfile <- tempfile(fileext = ".latex")
+  writeLines(template, tmpfile)
+
   # base format
-  fmt <- inherit_pdf_document(...,
-                              template = find_resource(format, template))
+  fmt <- inherit_pdf_document(..., template = tmpfile)
 
   pdf_pre_processor <- function(metadata,
-                              input_file,
-                              runtime,
-                              knit_meta,
-                              files_dir,
-                              output_dir) {
+                                input_file,
+                                runtime,
+                                knit_meta,
+                                files_dir,
+                                output_dir) {
     args <- c()
 
     has_yaml_parameter <- function(text, parameter) {
@@ -77,6 +93,8 @@ pdf_document_format <- function(...,
     args
   }
 
+  saved_files_dir <- NULL
+
   pre_processor <- function(metadata,
                             input_file,
                             runtime,
@@ -98,6 +116,11 @@ pdf_document_format <- function(...,
   # remove rmarkdown geometry settings
   fmt$pre_processor <- function(...) {
     c(pdf_pre_processor(...), "--variable", "tables=yes", "--standalone")
+  }
+
+  # delete modified latex template
+  fmt$on_exit <- function() {
+    unlink(tmpfile)
   }
 
   # add csl to pandoc_args
