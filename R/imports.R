@@ -1,5 +1,7 @@
 # The following files are imported functions from rmarkdown, modified
-# only by the commenting out of some lines and general code styling
+# only by the commenting out of some lines and general code styling.
+# rmarkdown is copyrighted to RStudio and licensed under
+# GPL-3.
 
 latex_dependencies_as_string <-
   utils::getFromNamespace("latex_dependencies_as_string", "rmarkdown")
