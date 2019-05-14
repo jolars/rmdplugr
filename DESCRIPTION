@@ -22,5 +22,5 @@ Imports:
     rmarkdown,
     bookdown
 Suggests: 
-    testthat,
+    testthat (>= 2.1.0),
     covr
