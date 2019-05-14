@@ -12,8 +12,8 @@
 #'   template.
 #' @param marginals whether to augment latex template with marginals (header
 #'   and footer) code
-#' @param author_block wheter to augment latex template with author
-#'   blocks. The latex packae authblk is required.
+#' @param author_block whether to augment latex template with author
+#'   blocks. The latex package authblk is required.
 #' @param template template for latex output. If `NULL`, the default
 #'   latex template will be used (obtained from calling `pandoc -D latex`).
 #'

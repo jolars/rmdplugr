@@ -24,8 +24,8 @@ template.}
 \item{marginals}{whether to augment latex template with marginals (header
 and footer) code}
 
-\item{author_block}{wheter to augment latex template with author
-blocks. The latex packae authblk is required.}
+\item{author_block}{whether to augment latex template with author
+blocks. The latex package authblk is required.}
 
 \item{template}{template for latex output. If `NULL`, the default
 latex template will be used (obtained from calling `pandoc -D latex`).}
