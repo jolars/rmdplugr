@@ -2,137 +2,30 @@
 # the rticles package, which is copyrighted to RStudio and licensed under
 # GPL-3.
 
-find_file <- function(template, file) {
-  template <- system.file("rmarkdown",
-                          "templates",
-                          template,
-                          file,
-                          package = "rmdtemplates")
-  if (template == "")
-    stop("Couldn't find template file ", template, "/", file, call. = FALSE)
+find_file <- function(...) {
+  file <- system.file(..., package = "rmdtemplates")
+  if (file == "")
+    stop("Couldn't find file ", file, call. = FALSE)
+  file
+}
+
+find_latex_addin <- function(addin) {
+  addin <- paste0(addin, ".latex")
+  file <- find_file("latex-addins", addin)
+  file
+}
+
+get_latex_addin <- function(addin) {
+  file <- find_latex_addin(addin)
+  readLines(file(file))
+}
+
+get_pandoc_template <- function(pandoc = NULL) {
+  if (is.null(pandoc))
+    pandoc <- find_pandoc()
+
+  template <- system2(file.path(pandoc$dir, "pandoc"),
+                      args = c("-D latex"),
+                      stdout = TRUE)
   template
-}
-
-find_resource <- function(template, file) {
-  find_file(template, file.path("resources", file))
-}
-
-inherit_pdf_document <- function(...) {
-  fmt <- bookdown::pdf_document2(...)
-
-  fmt$inherits <- "pdf_document"
-  fmt
-}
-
-pdf_document_format <- function(...,
-                                use_marginals = TRUE,
-                                use_author_block = TRUE,
-                                extra_dependencies = NULL,
-                                template = NULL,
-                                csl = NULL,
-                                colorlinks = TRUE)
-{
-  # get template to modify
-  if (is.null(template))
-    template <- system2("pandoc", args = c("-D latex"), stdout = TRUE)
-  else
-    template <- readLines(template)
-
-  if (use_author_block)
-    template <- add_author_block(template)
-
-  if (use_marginals)
-    template <- add_marginals(template)
-
-  # write augmented template to temporary file
-  tmpfile <- tempfile(fileext = ".latex")
-  writeLines(template, tmpfile)
-
-  # base format
-  fmt <- inherit_pdf_document(..., template = tmpfile)
-
-  pdf_pre_processor <- function(metadata,
-                                input_file,
-                                runtime,
-                                knit_meta,
-                                files_dir,
-                                output_dir) {
-    args <- c()
-
-    has_yaml_parameter <- function(text, parameter) {
-      length(grep(paste0("^", parameter, "\\s*:.*$"), text)) > 0
-    }
-
-    input_test <- read_utf8(input_file)
-
-    if (!has_yaml_parameter(input_test, "indent"))
-      args <- c(args, "--variable", "indent:yes")
-
-    # # set the margin to 1 inch if no geometry options or document class specified
-    # if (!has_yaml_parameter(input_test, "(geometry|documentclass)"))
-    #   args <- c(args, "--variable", "geometry:margin=1in")
-
-    # # use titling package to change title format to be more compact by default
-    # if (!has_yaml_parameter(input_test, "compact-title"))
-    #   args <- c(args, "--variable", "compact-title:yes")
-
-    if (length(extra_dependencies) || has_latex_dependencies(knit_meta)) {
-      extra_dependencies <- latex_dependencies(extra_dependencies)
-      all_dependencies <- append(extra_dependencies,
-                                 flatten_latex_dependencies(knit_meta))
-      filename <- as_tmpfile(latex_dependencies_as_string(all_dependencies))
-      if ("header-includes" %in% names(metadata)) {
-        cat(c("", metadata[["header-includes"]]),
-            sep = "\n",
-            file = filename,
-            append = TRUE)
-      }
-      args <- c(args, rmarkdown::includes_to_pandoc_args(
-                        rmarkdown::includes(in_header = filename)))
-    }
-    args
-  }
-
-  saved_files_dir <- NULL
-
-  pre_processor <- function(metadata,
-                            input_file,
-                            runtime,
-                            knit_meta,
-                            files_dir,
-                            output_dir) {
-    # save files dir (for generating intermediates)
-    saved_files_dir <<- files_dir
-
-    # use a geometry filter when we are using the "default" template
-    if (identical(template, "default"))
-      pdf_pre_processor(metadata, input_file, runtime, knit_meta, files_dir,
-                        output_dir)
-    else
-      invisible(NULL)
-  }
-
-
-  # remove rmarkdown geometry settings
-  fmt$pre_processor <- function(...) {
-    c(pdf_pre_processor(...), "--variable", "tables=yes", "--standalone")
-  }
-
-  # delete modified latex template
-  fmt$on_exit <- function() {
-    unlink(tmpfile)
-  }
-
-  # add csl to pandoc_args
-  if (!is.null(csl)) {
-    fmt$pandoc$args <- c(fmt$pandoc$args,
-                         "--csl",
-                         rmarkdown::pandoc_path_arg(csl))
-  }
-
-  if (isTRUE(colorlinks)) {
-    fmt$pandoc$args <- c(fmt$pandoc$args, "--variable", "colorlinks=yes")
-  }
-
-  fmt
 }

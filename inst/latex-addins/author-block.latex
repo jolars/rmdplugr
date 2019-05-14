@@ -1,0 +1,13 @@
+% Author block
+\usepackage[$if(authorstyle)$$authorstyle$$endif$]{authblk}
+\renewcommand\Affilfont{$if(affilfont)$$affilfont$$else$\itshape\small$endif$}
+\renewcommand\Authfont{$if(authfont)$$authfont$$endif$}
+$for(author)$
+\author{$if(author.name)$$author.name$$else$$author$$endif$}
+$for(author.affiliation)$
+\affil{$author.affiliation$}
+$endfor$
+$endfor$
+$for(affiliation)$
+\affil{$affiliation$}
+$endfor$

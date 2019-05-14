@@ -1,0 +1,27 @@
+% Marginal material
+$if(marginals)$
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{fancyhdr.sty}{%
+    \usepackage{fancyhdr}
+    \setlength{\headheight}{15.2pt}
+    \pagestyle{$if(marginals.pagestyle)$marginals.pagestyle$else$fancy$endif$}
+$for(marginals.header)$
+    \$marginals.header.pos$head[$marginals.header.text$]{$marginals.header.text$}
+$endfor$
+$for(marginals.footer)$
+    \$marginals.footer.pos$foot[$marginals.header.text$]{$marginals.footer.text$}
+$endfor$
+  }
+}{% if KOMA class
+  \usepackage[automark,autooneside=true]{scrlayer-scrpage}
+  \pagestyle{$if(marginals.pagestyle)$marginals.pagestyle$else$scrheadings$endif$}
+$for(marginals.header)$
+  \$marginals.header.pos$ohead[]{$marginals.header.text$}
+$endfor$
+$for(marginals.header)$
+  \$marginals.footer.pos$ofoot[]{$marginals.footer.text$}
+$endfor$
+}
+\makeatother
+$endif$
