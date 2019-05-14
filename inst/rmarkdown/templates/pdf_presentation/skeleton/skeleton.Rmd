@@ -1,0 +1,20 @@
+---
+title: "Title"
+subtitle: "Subtitle"
+author: "First author"
+date: "`r Sys.Date()`"
+output: rmdtemplates::pdf_presentation
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  dev = "pdf",
+  dev.args = list(pointsize = 8)
+)
+
+options(digits = 3)
+```
+
+# Introduction
+
