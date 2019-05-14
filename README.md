@@ -5,10 +5,14 @@
 
 <!-- badges: start -->
 
-[![Codecov test
-coverage](https://codecov.io/gh/jolars/rmdtemplates/branch/master/graph/badge.svg)](https://codecov.io/gh/jolars/rmdtemplates?branch=master)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rmdtemplates)](https://cran.r-project.org/package=rmdtemplates)
+[![Codecov test
+coverage](https://codecov.io/gh/jolars/rmdtemplates/branch/master/graph/badge.svg)](https://codecov.io/gh/jolars/rmdtemplates?branch=master)
+[![Build
+Status](https://travis-ci.com/jolars/rmdtemplates.svg?branch=master)](https://travis-ci.com/jolars/rmdtemplates)
+[![Build
+status](https://ci.appveyor.com/api/projects/status/cbls87q4bkkhxuoj?svg=true)](https://ci.appveyor.com/project/jolars/rmdtemplates)
 <!-- badges: end -->
 
 The goal of rmdtemplates is to …
