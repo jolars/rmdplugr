@@ -22,4 +22,5 @@ Imports:
     rmarkdown,
     bookdown
 Suggests: 
-    testthat
+    testthat,
+    covr
