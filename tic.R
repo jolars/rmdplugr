@@ -1,3 +1,3 @@
 do_package_checks()
 
-do_pkgdown()
+do_pkgdown(deploy = TRUE)
