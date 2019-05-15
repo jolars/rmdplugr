@@ -15,7 +15,19 @@ Status](https://travis-ci.com/jolars/rmdplugr.svg?branch=master)](https://travis
 status](https://ci.appveyor.com/api/projects/status/cbls87q4bkkhxuoj?svg=true)](https://ci.appveyor.com/project/jolars/rmdplugr)
 <!-- badges: end -->
 
-The goal of rmdplugr is to do
+rmdplugr modifies latex templates for Rmarkdown formats in order to
+
+1.  restore style modifications caused by the default Rmarkdown and
+    pandoc templates and
+2.  enable additional modifications such as marginal material and author
+    blocks.
+
+The basic idea is that this package maintains to custom template and
+instead inserts pandoc *plugins* (chunks) into the latex template in
+order to provide modifications. The only requirement is that the
+template to be modified (usually the default) contains a few lines from
+the standard template so that rmdplugr knows where to insert the new
+template matter.
 
 ## Installation
 
@@ -26,36 +38,3 @@ You can install the development version from
 # install.packages("devtools")
 devtools::install_github("jolars/rmdplugr")
 ```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(rmdplugr)
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!
