@@ -11,6 +11,8 @@ test_format <- function(name, os_skip = NULL) {
     # skip on travis (which seems to currently fail)
     skip_on_travis()
 
+    skip_on_appveyor()
+
     # skip on os if requested
     if (!is.null(os_skip))
       skip_on_os(os_skip)
