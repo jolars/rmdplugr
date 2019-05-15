@@ -76,18 +76,14 @@ pdf_article <- function(...,
 
   # indent by default
   if (isTRUE(indent))
-    fmt$pandoc$args <- c(fmt$pandoc$args,
-                         "--variable",
-                         "indent:yes")
+    fmt$pandoc$args <- c(fmt$pandoc$args, "--variable", "indent:yes")
 
-  fmt$pandoc$args <- c(fmt$pandoc$args,
-                       "--variable",
-                       "graphics:yes")
+  # always use graphics
+  fmt$pandoc$args <- c(fmt$pandoc$args, "--variable", "graphics:yes")
 
+  # use colorlinks by default
   if (isTRUE(colorlinks)) {
-    fmt$pandoc$args <- c(fmt$pandoc$args,
-                         "--variable",
-                         "colorlinks:yes")
+    fmt$pandoc$args <- c(fmt$pandoc$args, "--variable", "colorlinks:yes")
   }
 
   fmt
