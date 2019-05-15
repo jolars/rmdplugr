@@ -30,7 +30,8 @@ rmdplugr modifies latex templates for Rmarkdown formats in order to
 The basic idea is that this package maintains to custom template and
 instead inserts pandoc *plugins* (chunks) into the latex template in
 order to provide modifications. The only requirement is that the 
-template to be modified (usually the default) contains a few lines from the
+template to be modified (by default the default pandoc template
+gotten from `pandoc -D latex`) contains a few lines from the
 standard template so that rmdplugr knows where to insert the new
 template matter.
 
