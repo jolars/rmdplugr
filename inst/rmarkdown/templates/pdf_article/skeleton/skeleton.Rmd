@@ -6,7 +6,7 @@ author:
   - name: "Second Author"
     affiliation: "Affiliation"
 date: "`r Sys.Date()`"
-output: rmdtemplates::pdf_article
+output: rmdplugr::pdf_article
 ---
 
 ```{r, include = FALSE}

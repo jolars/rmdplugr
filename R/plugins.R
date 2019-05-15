@@ -8,7 +8,7 @@ add_author_block <- function(x) {
   end <- grep("$endif$", x, fixed = TRUE)
   to <- end[which(end - from > 0)[1]]
 
-  author_block <- get_latex_addin("author-block")
+  author_block <- get_latex_plugin("author-block")
 
   c(x[1:(from - 1)], author_block, x[(to+1):length(x)])
 }
@@ -20,7 +20,7 @@ add_marginals <- function(x) {
     warning("no header-includes in template, so do not know where to insert",
             "authors block.")
 
-  marginals <- get_latex_addin("marginals")
+  marginals <- get_latex_plugin("marginals")
 
   c(x[1:(from-1)], marginals, x[from:length(x)])
 }

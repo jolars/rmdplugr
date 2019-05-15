@@ -1,36 +1,30 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rmdtemplates
+# rmdplugr
 
 <!-- badges: start -->
 
 [![CRAN
-status](https://www.r-pkg.org/badges/version/rmdtemplates)](https://cran.r-project.org/package=rmdtemplates)
+status](https://www.r-pkg.org/badges/version/rmdplugr)](https://cran.r-project.org/package=rmdplugr)
 [![Codecov test
-coverage](https://codecov.io/gh/jolars/rmdtemplates/branch/master/graph/badge.svg)](https://codecov.io/gh/jolars/rmdtemplates?branch=master)
+coverage](https://codecov.io/gh/jolars/rmdplugr/branch/master/graph/badge.svg)](https://codecov.io/gh/jolars/rmdplugr?branch=master)
 [![Build
-Status](https://travis-ci.com/jolars/rmdtemplates.svg?branch=master)](https://travis-ci.com/jolars/rmdtemplates)
+Status](https://travis-ci.com/jolars/rmdplugr.svg?branch=master)](https://travis-ci.com/jolars/rmdplugr)
 [![Build
-status](https://ci.appveyor.com/api/projects/status/cbls87q4bkkhxuoj?svg=true)](https://ci.appveyor.com/project/jolars/rmdtemplates)
+status](https://ci.appveyor.com/api/projects/status/cbls87q4bkkhxuoj?svg=true)](https://ci.appveyor.com/project/jolars/rmdplugr)
 <!-- badges: end -->
 
-The goal of rmdtemplates is to …
+The goal of rmdplugr is to do
 
 ## Installation
 
-You can install the released version of rmdtemplates from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("rmdtemplates")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("jolars/rmdtemplates")
+devtools::install_github("jolars/rmdplugr")
 ```
 
 ## Example
@@ -38,7 +32,7 @@ devtools::install_github("jolars/rmdtemplates")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(rmdtemplates)
+library(rmdplugr)
 ## basic example code
 ```
 

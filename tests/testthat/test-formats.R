@@ -2,8 +2,6 @@
 # https://github.com/rstudio/rticles and is copyrighted to RStudio and
 # licensed under GPL-3
 
-context("drafting")
-
 test_format <- function(name, os_skip = NULL) {
   test_that(paste(name, "format"), {
 
@@ -29,7 +27,7 @@ test_format <- function(name, os_skip = NULL) {
 
     rmarkdown::draft(
       testdoc,
-      system.file("rmarkdown", "templates", name, package = "rmdtemplates"),
+      system.file("rmarkdown", "templates", name, package = "rmdplugr"),
       create_dir = FALSE,
       edit = FALSE
     )

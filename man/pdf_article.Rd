@@ -47,6 +47,6 @@ library(rmarkdown)
 library(bookdown)
 rmarkdown::draft("my-article.Rmd",
                  template = "pdf_article",
-                 package = "rmdtemplates",
+                 package = "rmdplugr",
                  edit = FALSE)
 }

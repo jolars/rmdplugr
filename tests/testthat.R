@@ -1,4 +1,4 @@
 library(testthat)
-library(rmdtemplates)
+library(rmdplugr)
 
-test_check("rmdtemplates")
+test_check("rmdplugr")

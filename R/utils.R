@@ -1,23 +1,23 @@
-# These functions are (mostly) verbatim copies of functions from
-# the rticles package, which is copyrighted to RStudio and licensed under
-# GPL-3.
-
 find_file <- function(...) {
-  file <- system.file(..., package = "rmdtemplates")
+  file <- system.file(..., package = "rmdplugr")
   if (file == "")
     stop("Couldn't find file ", file, call. = FALSE)
   file
 }
 
-find_latex_addin <- function(addin) {
-  addin <- paste0(addin, ".latex")
-  file <- find_file("latex-addins", addin)
+find_latex_plugin <- function(plugin) {
+  plugin <- paste0(plugin, ".latex")
+  file <- find_file("latex-plugins", plugin)
   file
 }
 
-get_latex_addin <- function(addin) {
-  file <- find_latex_addin(addin)
-  readLines(file(file))
+get_latex_plugin <- function(plugin) {
+  plugin <- paste0(plugin, ".latex")
+  file <- find_file("latex-plugins", plugin)
+  # con <- file(file)
+  out <- readLines(file)
+  # close(con)
+  out
 }
 
 get_pandoc_template <- function(pandoc = NULL) {

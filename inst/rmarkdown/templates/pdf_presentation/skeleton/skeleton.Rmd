@@ -3,7 +3,7 @@ title: "Title"
 subtitle: "Subtitle"
 author: "First author"
 date: "`r Sys.Date()`"
-output: rmdtemplates::pdf_presentation
+output: rmdplugr::pdf_presentation
 ---
 
 ```{r, include = FALSE}

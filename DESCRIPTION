@@ -1,5 +1,5 @@
-Package: rmdtemplates
-Title: Augmented Rmarkdown Templates
+Package: rmdplugr
+Title: Plugins for Rmarkdown Formats
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Johan",
@@ -7,12 +7,13 @@ Authors@R:
            role = c("aut", "cre"),
            email = "mail@larssonjohan.com",
            comment = c(ORCID = "0000-0002-4029-5945"))
-Description: This package provides templates and wrappers built around the
-    default Rmarkdown pdf templates from 'rmarkdown' and 'bookdown' and the
-    latex template from 'pandoc'. The goal is to restore most of the
-    style modifications introduced by these default templates, such as
+Description: This package adds plugins that transform 'latex' templates
+    used in Rmarkdown formats without relying on custom templates. The goal is 
+    both to restore the
+    style modifications introduced by the default behavior of the
+    'rmarkdown' and 'pandoc' templates, such as
     smaller margins, paragraph spacing, and compact titles, and also
-    to enable affiliations through the latex 'auhthblk' package and
+    to enable affiliations through the 'latex' 'auhthblk' package and
     marginal material using either 'scrlayer-page' or 'fancyhdr'. 
 License: GPL-3
 Encoding: UTF-8
