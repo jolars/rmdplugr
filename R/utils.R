@@ -29,3 +29,16 @@ get_pandoc_template <- function(pandoc = NULL) {
                       stdout = TRUE)
   template
 }
+
+split_at_headerincludes <- function(x) {
+  from <- grep("$for(header-includes)$", x, fixed = TRUE)
+  n <- length(x)
+
+  if (!length(from))
+    warning("no header-includes in template, so do not know where to insert",
+            "authors block.")
+
+  # Split template and return pieces
+  list(top = x[1:(from-1)],
+       bottom = x[from:n])
+}

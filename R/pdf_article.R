@@ -16,6 +16,9 @@
 #'   blocks. The latex package authblk is required.
 #' @param template template for latex output. If `NULL`, the default
 #'   latex template will be used (obtained from calling `pandoc -D latex`).
+#' @param noindentafter whether to augment latex template with
+#'   the noindentafter latex package to suppress indentation after
+#'   certain environments. Always set to `FALSE` is `indent = FALSE`.
 #'
 #' @return R Markdown output format to pass to [rmarkdown::render()]
 #' @examples
@@ -32,6 +35,7 @@ pdf_article <- function(...,
                         indent = TRUE,
                         marginals = TRUE,
                         author_block = TRUE,
+                        noindentafter = TRUE,
                         template = NULL,
                         csl = NULL,
                         colorlinks = TRUE)
@@ -50,6 +54,9 @@ pdf_article <- function(...,
 
   if (marginals)
     template <- add_marginals(template)
+
+  if (noindentafter && indent)
+    template <- add_noindentafter(template)
 
   # write augmented template to temporary file
   tmpfile <- tempfile(fileext = ".latex")

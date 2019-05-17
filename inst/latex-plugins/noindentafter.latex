@@ -1,0 +1,8 @@
+% Suppress indenting after some environments
+\IfFileExists{noindentafter.sty}{%
+  \usepackage{noindentafter}
+  \NoIndentAfterEnv{itemize}
+  \NoIndentAfterEnv{enumerate}
+  \NoIndentAfterEnv{description}
+  \NoIndentAfterEnv{Shaded}
+}

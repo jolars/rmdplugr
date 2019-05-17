@@ -1,0 +1,4 @@
+% Customize beamer template
+$for($setbeamertemplate$)$
+\setbeamertemplate{$setbeamertemplate.item$}[$setbeamertemplate.value$]
+$endfor$

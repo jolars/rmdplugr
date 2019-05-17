@@ -4,7 +4,8 @@
 \alias{pdf_presentation}
 \title{PDF presentation template}
 \usage{
-pdf_presentation(..., template = NULL, page_numbering = TRUE)
+pdf_presentation(..., template = NULL, page_numbering = TRUE,
+  setbeamertemplate = TRUE)
 }
 \arguments{
 \item{...}{arguments passed on to [rmarkdown::beamer_presentation()]}
@@ -13,6 +14,11 @@ pdf_presentation(..., template = NULL, page_numbering = TRUE)
 latex template will be used.}
 
 \item{page_numbering}{whether to add page numbers to latex template}
+
+\item{setbeamertemplate}{whether to add a block that allows
+use of `\\setbeamertemplate\{\}[]` through a metadata block called
+`setbeamertemplate` with items `item` and `value` for the
+respective settings.}
 }
 \value{
 R Markdown output format to pass to [rmarkdown::render()]

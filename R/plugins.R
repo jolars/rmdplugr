@@ -14,15 +14,11 @@ add_author_block <- function(x) {
 }
 
 add_marginals <- function(x) {
-  from <- grep("$for(header-includes)$", x, fixed = TRUE)
-
-  if (!length(from))
-    warning("no header-includes in template, so do not know where to insert",
-            "authors block.")
+  y <- split_at_headerincludes(x)
 
   marginals <- get_latex_plugin("marginals")
 
-  c(x[1:(from-1)], marginals, x[from:length(x)])
+  c(y$top, marginals, y$bottom)
 }
 
 add_page_numbering <- function(x) {
@@ -37,4 +33,16 @@ add_page_numbering <- function(x) {
   )
 
   c(x[1:(first - 1)], page_numbering, x[first:length(x)])
+}
+
+add_noindentafter <- function(x) {
+  y <- split_at_headerincludes(x)
+  noindentafter <- get_latex_plugin("noindentafter")
+  c(y$top, noindentafter, y$bottom)
+}
+
+add_setbeamertemplate <- function(x) {
+  y <- split_at_headerincludes(x)
+  beamer_templating <- get_latex_plugin("setbeamertemplate")
+  c(y$top, beamer_templating, y$bottom)
 }
