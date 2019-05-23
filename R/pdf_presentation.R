@@ -5,17 +5,17 @@
 #' @param template what template to use. If `NULL`, the default
 #'   latex template will be used.
 #' @param page_numbering whether to add page numbers to latex template
-#' @param setbeamertemplate whether to add a block that allows
-#'   use of `\\setbeamertemplate\{\}[]` through a metadata block called
-#'   `setbeamertemplate` with items `item` and `value` for the
-#'   respective settings.
+#' @param beamer_customization whether to add a block that allows
+#'   use of `\\setbeamertemplate\{\}[]`, `\\setbeamerfont\{\}[]`
+#'   through metadata blocks with analgous names and
+#'   with items `item` and `value` for setting various options.
 #'
 #' @inherit pdf_article return
 #' @export
 pdf_presentation <- function(...,
                              template = NULL,
                              page_numbering = TRUE,
-                             setbeamertemplate = TRUE) {
+                             beamer_customization = TRUE) {
 
   if (is.null(template))
     template <- system2("pandoc", args = c("-D latex"), stdout = TRUE)
@@ -25,8 +25,8 @@ pdf_presentation <- function(...,
   if (page_numbering)
     template <- add_page_numbering(template)
 
-  if (setbeamertemplate)
-    template <- add_setbeamertemplate(template)
+  if (beamer_customization)
+    template <- add_beamer_customization(template)
 
   # write augmented template to temporary file
   tmpfile <- tempfile(fileext = ".latex")

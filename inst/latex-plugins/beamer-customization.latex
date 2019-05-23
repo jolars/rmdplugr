@@ -1,0 +1,7 @@
+% Beamer customization
+$for(setbeamertemplate)$
+\setbeamertemplate{$setbeamertemplate.item$}[$setbeamertemplate.value$]
+$endfor$
+$for(setbeamerfont)$
+\setbeamerfont{$setbeamerfont.item$}{$setbeamerfont.value$}
+$endfor$

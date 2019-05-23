@@ -41,8 +41,8 @@ add_noindentafter <- function(x) {
   c(y$top, noindentafter, y$bottom)
 }
 
-add_setbeamertemplate <- function(x) {
+add_beamer_customization <- function(x) {
   y <- split_at_headerincludes(x)
-  beamer_templating <- get_latex_plugin("setbeamertemplate")
-  c(y$top, beamer_templating, y$bottom)
+  beamer_customization <- get_latex_plugin("beamer-customization")
+  c(y$top, beamer_customization, y$bottom)
 }

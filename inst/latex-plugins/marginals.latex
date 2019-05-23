@@ -6,7 +6,8 @@ $if(marginals)$
     \usepackage{fancyhdr}
     \setlength{\headheight}{15.2pt}
     \pagestyle{$if(marginals.pagestyle)$marginals.pagestyle$else$fancy$endif$}
-$for(marginals.header)$
+$if(marginals)$
+$if(marginalslf$
     \$marginals.header.pos$head[$marginals.header.text$]{$marginals.header.text$}
 $endfor$
 $for(marginals.footer)$
