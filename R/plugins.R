@@ -46,3 +46,13 @@ add_beamer_customization <- function(x) {
   beamer_customization <- get_latex_plugin("beamer-customization")
   c(y$top, beamer_customization, y$bottom)
 }
+
+add_more_fontthemes <- function(x) {
+
+  y <- clip_and_split_at_block(x, from = "$if(fonttheme)$")
+
+  more_fontthemes <- get_latex_plugin("more-fontthemes")
+
+  c(y$top, more_fontthemes, y$bottom)
+}
+

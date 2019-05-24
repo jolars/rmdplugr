@@ -31,14 +31,31 @@ get_pandoc_template <- function(pandoc = NULL) {
 }
 
 split_at_headerincludes <- function(x) {
-  from <- grep("$for(header-includes)$", x, fixed = TRUE)
+  start <- grep("$for(header-includes)$", x, fixed = TRUE)
   n <- length(x)
 
-  if (!length(from))
-    warning("no header-includes in template, so do not know where to insert",
-            "authors block.")
+  # insert above begin document if no header includes
+  if (!length(start))
+    start <- grep("\\begin{document}", fixed = TRUE)
+
+  if (!length(start))
+    warning("no header-includes in template, so inserting block ",
+            "above \\begin{document}")
 
   # Split template and return pieces
-  list(top = x[1:(from-1)],
-       bottom = x[from:n])
+  list(top = x[1:(start-1)], bottom = x[start:n])
+}
+
+clip_and_split_at_block <- function(x, from, to = "$endif$", fixed = TRUE) {
+  n <- length(x)
+
+  start <- grep(from, x, fixed = fixed)[1]
+
+  if (!length(from))
+    warning("pattern ", from, " was not found in template, so cannot insert ",
+            "block")
+
+  end <- grep(to, x, fixed = fixed)
+  end <- end[which(end - start > 0)[1]]
+  list(top = x[1:(start - 1)], bottom = x[(end + 1):n])
 }
