@@ -1,28 +1,56 @@
+$if(header)$
 % Marginal material
-$if(marginals)$
 \makeatletter
 \@ifundefined{KOMAClassName}{% if non-KOMA class
   \IfFileExists{fancyhdr.sty}{%
     \usepackage{fancyhdr}
     \setlength{\headheight}{15.2pt}
     \pagestyle{$if(marginals.pagestyle)$marginals.pagestyle$else$fancy$endif$}
-$if(marginals)$
-$if(marginalslf$
-    \$marginals.header.pos$head[$marginals.header.text$]{$marginals.header.text$}
-$endfor$
-$for(marginals.footer)$
-    \$marginals.footer.pos$foot[$marginals.header.text$]{$marginals.footer.text$}
-$endfor$
   }
 }{% if KOMA class
   \usepackage[automark,autooneside=true]{scrlayer-scrpage}
   \pagestyle{$if(marginals.pagestyle)$marginals.pagestyle$else$scrheadings$endif$}
-$for(marginals.header)$
-  \$marginals.header.pos$ohead[]{$marginals.header.text$}
-$endfor$
-$for(marginals.header)$
-  \$marginals.footer.pos$ofoot[]{$marginals.footer.text$}
-$endfor$
 }
+\makeatother
+$else$
+$if(footer)$
+% Marginal material
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{fancyhdr.sty}{%
+    \usepackage{fancyhdr}
+    \setlength{\headheight}{15.2pt}
+  }
+}{% if KOMA class
+  \usepackage[autooneside=true]{scrlayer-scrpage}
+  \pagestyle{$if(marginals.pagestyle)$marginals.pagestyle$else$scrheadings$endif$}
+}
+\makeatother
+$endif$
+$endif$
+$if(header)$
+\makeatletter
+$if(header.l)$
+\@ifundefined{KOMAClassName}{\lhead[]{$header.l$}}{\lohead[]{$header.l$}}
+$endif$
+$if(header.r)$
+\@ifundefined{KOMAClassName}{\rhead[]{$header.r$}}{\rohead[]{$header.r$}}
+$endif$
+$if(header.c)$
+\@ifundefined{KOMAClassName}{\chead[]{$header.c$}}{\cohead[]{$header.c$}}
+$endif$
+\makeatother
+$endif$
+$if(footer)$
+\makeatletter
+$if(footer.l)$
+\@ifundefined{KOMAClassName}{\lfoot[]{$footer.l$}}{\lofoot[]{$footer.l$}}
+$endif$
+$if(footer.r)$
+\@ifundefined{KOMAClassName}{\rfoot[]{$footer.r$}}{\rofoot[]{$footer.r$}}
+$endif$
+$if(footer.c)$
+\@ifundefined{KOMAClassName}{\cfoot[]{$footer.c$}}{\cofoot[]{$footer.c$}}
+$endif$
 \makeatother
 $endif$
