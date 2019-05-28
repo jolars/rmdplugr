@@ -21,18 +21,18 @@ add_marginals <- function(x) {
   c(y$top, marginals, y$bottom)
 }
 
-add_page_numbering <- function(x) {
+add_frame_numbering <- function(x) {
   first <- grep("\\setbeamertemplate", x, fixed = TRUE)[1]
 
   if (!length(first))
     warning("no beamer lines in template, so do not know where to insert",
             "authors block.")
 
-  page_numbering <- c(
-    "\\setbeamertemplate{footline}[page number]"
+  frame_numbering <- c(
+    "\\setbeamertemplate{footline}[frame number]"
   )
 
-  c(x[1:(first - 1)], page_numbering, x[first:length(x)])
+  c(x[1:(first - 1)], frame_numbering, x[first:length(x)])
 }
 
 add_noindentafter <- function(x) {

@@ -4,7 +4,7 @@
 #' @param ... arguments passed on to [rmarkdown::beamer_presentation()]
 #' @param template what template to use. If `NULL`, the default
 #'   latex template will be used.
-#' @param page_numbering whether to add page numbers to latex template
+#' @param frame_numbering whether to add frame numbers to latex template
 #' @param beamer_customization whether to add a block that allows
 #'   use of `\\setbeamertemplate\{\}[]`, `\\setbeamerfont\{\}[]`
 #'   through metadata blocks with analgous names and
@@ -16,7 +16,7 @@
 #' @export
 pdf_presentation <- function(...,
                              template = NULL,
-                             page_numbering = TRUE,
+                             frame_numbering = TRUE,
                              beamer_customization = TRUE,
                              more_fontthemes = TRUE) {
 
@@ -25,8 +25,8 @@ pdf_presentation <- function(...,
   else
     template <- readLines(template)
 
-  if (page_numbering)
-    template <- add_page_numbering(template)
+  if (frame_numbering)
+    template <- add_frame_numbering(template)
 
   if (beamer_customization)
     template <- add_beamer_customization(template)
