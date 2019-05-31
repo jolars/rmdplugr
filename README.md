@@ -10,7 +10,7 @@ status](https://www.r-pkg.org/badges/version/rmdplugr)](https://cran.r-project.o
 [![Codecov test
 coverage](https://codecov.io/gh/jolars/rmdplugr/branch/master/graph/badge.svg)](https://codecov.io/gh/jolars/rmdplugr?branch=master)
 [![Travis build
-status](https://travis-ci.org/jolars/rmdplugr.svg?branch=master)](https://travis-ci.org/jolars/rmdplugr)
+status](https://travis-ci.com/jolars/rmdplugr.svg?branch=master)](https://travis-ci.com/jolars/rmdplugr)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/jolars/rmdplugr?branch=master&svg=true)](https://ci.appveyor.com/project/jolars/rmdplugr)
 <!-- badges: end -->
