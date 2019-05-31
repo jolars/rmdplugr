@@ -9,7 +9,7 @@ test_format <- function(name, os_skip = NULL) {
     skip_on_cran()
 
     # skip on travis (which seems to currently fail)
-    skip_on_appveyor()
+    # skip_on_appveyor()
 
     # skip on os if requested
     if (!is.null(os_skip))
