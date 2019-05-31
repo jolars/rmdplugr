@@ -8,7 +8,7 @@ template}
 pdf_article(..., number_sections = TRUE,
   md_extensions = c("-autolink_bare_uris"), indent = TRUE,
   marginals = TRUE, author_block = TRUE, noindentafter = TRUE,
-  template = NULL, csl = NULL, colorlinks = TRUE)
+  subfigs = TRUE, template = NULL, csl = NULL, colorlinks = TRUE)
 }
 \arguments{
 \item{...}{arguments passed down to [bookdown::pdf_document2()]}
@@ -30,6 +30,8 @@ blocks. The latex package authblk is required.}
 \item{noindentafter}{whether to augment latex template with
 the noindentafter latex package to suppress indentation after
 certain environments. Always set to `FALSE` is `indent = FALSE`.}
+
+\item{subfigs}{whether to use the subfig package for subfig support}
 
 \item{template}{template for latex output. If `NULL`, the default
 latex template will be used (obtained from calling `pandoc -D latex`).}

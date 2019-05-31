@@ -4,8 +4,9 @@
 \alias{pdf_presentation}
 \title{PDF presentation template}
 \usage{
-pdf_presentation(..., template = NULL, page_numbering = TRUE,
-  beamer_customization = TRUE)
+pdf_presentation(..., template = NULL, frame_numbering = TRUE,
+  beamer_customization = TRUE, more_fontthemes = TRUE,
+  subfigs = TRUE)
 }
 \arguments{
 \item{...}{arguments passed on to [rmarkdown::beamer_presentation()]}
@@ -13,12 +14,17 @@ pdf_presentation(..., template = NULL, page_numbering = TRUE,
 \item{template}{what template to use. If `NULL`, the default
 latex template will be used.}
 
-\item{page_numbering}{whether to add page numbers to latex template}
+\item{frame_numbering}{whether to add frame numbers to latex template}
 
 \item{beamer_customization}{whether to add a block that allows
 use of `\\setbeamertemplate\{\}[]`, `\\setbeamerfont\{\}[]`
 through metadata blocks with analgous names and
 with items `item` and `value` for setting various options.}
+
+\item{more_fontthemes}{whether to add a block that
+allows multiple fontthemes}
+
+\item{subfigs}{whether to use the subfig package for subfig support}
 }
 \value{
 R Markdown output format to pass to [rmarkdown::render()]
