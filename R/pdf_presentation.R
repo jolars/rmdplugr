@@ -11,6 +11,7 @@
 #'   with items `item` and `value` for setting various options.
 #' @param more_fontthemes whether to add a block that
 #'   allows multiple fontthemes
+#' @param subfigs whether to use the subfig package for subfig support
 #'
 #' @inherit pdf_article return
 #' @export
@@ -18,7 +19,8 @@ pdf_presentation <- function(...,
                              template = NULL,
                              frame_numbering = TRUE,
                              beamer_customization = TRUE,
-                             more_fontthemes = TRUE) {
+                             more_fontthemes = TRUE,
+                             subfigs = TRUE) {
 
   if (is.null(template))
     template <- system2("pandoc", args = c("-D latex"), stdout = TRUE)
@@ -33,6 +35,9 @@ pdf_presentation <- function(...,
 
   if (more_fontthemes)
     template <- add_more_fontthemes(template)
+
+  if (subfigs)
+    template <- add_subfigs(template)
 
   # write augmented template to temporary file
   tmpfile <- tempfile(fileext = ".latex")

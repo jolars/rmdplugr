@@ -19,6 +19,7 @@
 #' @param noindentafter whether to augment latex template with
 #'   the noindentafter latex package to suppress indentation after
 #'   certain environments. Always set to `FALSE` is `indent = FALSE`.
+#' @param subfigs whether to use the subfig package for subfig support
 #'
 #' @return R Markdown output format to pass to [rmarkdown::render()]
 #' @examples
@@ -36,6 +37,7 @@ pdf_article <- function(...,
                         marginals = TRUE,
                         author_block = TRUE,
                         noindentafter = TRUE,
+                        subfigs = TRUE,
                         template = NULL,
                         csl = NULL,
                         colorlinks = TRUE)
@@ -57,6 +59,9 @@ pdf_article <- function(...,
 
   if (noindentafter && indent)
     template <- add_noindentafter(template)
+
+  if (subfigs)
+    template <- add_subfigs(template)
 
   # write augmented template to temporary file
   tmpfile <- tempfile(fileext = ".latex")

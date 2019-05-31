@@ -28,9 +28,7 @@ add_frame_numbering <- function(x) {
     warning("no beamer lines in template, so do not know where to insert",
             "authors block.")
 
-  frame_numbering <- c(
-    "\\setbeamertemplate{footline}[frame number]"
-  )
+  frame_numbering <- "\\setbeamertemplate{footline}[frame number]"
 
   c(x[1:(first - 1)], frame_numbering, x[first:length(x)])
 }
@@ -54,5 +52,10 @@ add_more_fontthemes <- function(x) {
   more_fontthemes <- get_latex_plugin("more-fontthemes")
 
   c(y$top, more_fontthemes, y$bottom)
+}
+
+add_subfigs <- function(x) {
+  y <- split_at_headerincludes(x)
+  c(y$top, "\\usepackage{subfig}", y$bottom)
 }
 
