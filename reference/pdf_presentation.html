@@ -78,6 +78,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/introduction.pdf">An Introduction to rmdplugr (PDF)</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -108,7 +120,9 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>pdf_presentation</span>(<span class='no'>...</span>, <span class='kw'>template</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>page_numbering</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>pdf_presentation</span>(<span class='no'>...</span>, <span class='kw'>template</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>frame_numbering</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>beamer_customization</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>more_fontthemes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>subfigs</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -123,8 +137,24 @@
 latex template will be used.</p></td>
     </tr>
     <tr>
-      <th>page_numbering</th>
-      <td><p>whether to add page numbers to latex template</p></td>
+      <th>frame_numbering</th>
+      <td><p>whether to add frame numbers to latex template</p></td>
+    </tr>
+    <tr>
+      <th>beamer_customization</th>
+      <td><p>whether to add a block that allows
+use of `\setbeamertemplate{}[]`, `\setbeamerfont{}[]`
+through metadata blocks with analogous names and
+with items `item` and `value` for setting various options.</p></td>
+    </tr>
+    <tr>
+      <th>more_fontthemes</th>
+      <td><p>whether to add a block that
+allows multiple fontthemes</p></td>
+    </tr>
+    <tr>
+      <th>subfigs</th>
+      <td><p>whether to use the subfig package for subfig support</p></td>
     </tr>
     </table>
     

@@ -81,6 +81,18 @@ template" />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/introduction.pdf">An Introduction to rmdplugr (PDF)</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -115,8 +127,8 @@ template</p>
 
     <pre class="usage"><span class='fu'>pdf_article</span>(<span class='no'>...</span>, <span class='kw'>number_sections</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>md_extensions</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"-autolink_bare_uris"</span>), <span class='kw'>indent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>marginals</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>author_block</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>template</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>csl</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>colorlinks</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+  <span class='kw'>marginals</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>author_block</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>noindentafter</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>subfigs</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>template</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>csl</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>colorlinks</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -148,6 +160,16 @@ and footer) code</p></td>
       <th>author_block</th>
       <td><p>whether to augment latex template with author
 blocks. The latex package authblk is required.</p></td>
+    </tr>
+    <tr>
+      <th>noindentafter</th>
+      <td><p>whether to augment latex template with
+the noindentafter latex package to suppress indentation after
+certain environments. Always set to `FALSE` is `indent = FALSE`.</p></td>
+    </tr>
+    <tr>
+      <th>subfigs</th>
+      <td><p>whether to use the subfig package for subfig support</p></td>
     </tr>
     <tr>
       <th>template</th>
