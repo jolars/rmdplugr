@@ -8,8 +8,8 @@ test_format <- function(name, os_skip = NULL) {
     # don't run on cran because pandoc is required
     skip_on_cran()
 
-    # skip on travis (which seems to currently fail)
-    # skip_on_appveyor()
+    # skip on appveyor since latex is missing
+    skip_on_appveyor()
 
     # skip on os if requested
     if (!is.null(os_skip))
