@@ -18,7 +18,7 @@ latex template will be used.}
 
 \item{beamer_customization}{whether to add a block that allows
 use of `\\setbeamertemplate\{\}[]`, `\\setbeamerfont\{\}[]`
-through metadata blocks with analgous names and
+through metadata blocks with analogous names and
 with items `item` and `value` for setting various options.}
 
 \item{more_fontthemes}{whether to add a block that

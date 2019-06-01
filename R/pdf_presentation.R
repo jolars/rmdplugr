@@ -7,7 +7,7 @@
 #' @param frame_numbering whether to add frame numbers to latex template
 #' @param beamer_customization whether to add a block that allows
 #'   use of `\\setbeamertemplate\{\}[]`, `\\setbeamerfont\{\}[]`
-#'   through metadata blocks with analgous names and
+#'   through metadata blocks with analogous names and
 #'   with items `item` and `value` for setting various options.
 #' @param more_fontthemes whether to add a block that
 #'   allows multiple fontthemes
