@@ -1,0 +1,94 @@
+---
+title: "An Introduction to rmdplugr"
+author: Johan Larsson
+output: rmdplugr::pdf_article
+papersize: a4
+vignette: >
+  %\VignetteIndexEntry{An Introduction to rmdplugr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+header: true
+pkgdown:
+  as_is: true
+  extension: pdf
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Motivation
+
+The motivation for **rmdplugr** was first off to produce a cleaner latex output
+format for rmarkdown documents, given that the default settings modify
+standard latex template by introducing
+
+* wide margins,
+* compact titles, and
+* paragraph spacing (instead of indentation).
+
+All of these make changes to the, in my opinion, well-founded design choices
+and should be alternatives rather than the default. I understand
+the stance taken by the pandoc team that output should
+be made similar across different outputs, yet I believe that the vast majority
+of users---particularly of Rmarkdown---make use only of a single output
+format at a time.
+
+As a secondary objective, I wanted to allow modifications of the standard
+latex template to allow for things such as headers and footers and
+author affiliations.
+
+# rmdplugr
+
+I did not, however, want to produce *yet another* custom latex template
+needing to be continuously updated along with the default templates,
+nor having to cater to different versions of pandoc, having
+to keep separate templates for different versions (as rmarkdown does).
+
+rmdplugr was created to avoid such issues and does so by instead
+modifying the default latex template in a version-agnostic 
+fashion. The default template is pulled by calling
+
+```bash
+pandoc -D latex
+```
+
+The template is then modified with modifications in the
+form of *plugins*, which are merged into the latex template---sometimes
+replacing other material, but usually inserting new material, such
+as support for footers and headers.
+
+In this way, rmdplugr doesn't have to adapt to the pandoc version and
+can even be used with custom templates *provided* that some of the matter
+from the default template is left intact.
+
+These *plugins* can be turned on and off via the `output` setting in
+the metadata block and their options are controlled by 
+metadata settings.
+
+# Plugins
+
+## Marginal material
+
+Headers and footers are provided using **fancyhdr** for standard latex 
+document classes and **scrlayer-page** for KOMA-script classes.
+Simply adding
+
+```yaml
+header: true
+```
+
+in the metadata block will invoke the default settings using the `automark`
+option in **scrlayer-page** and the default `\pagestyle{fancy}` for **fancyhdr**.
+More advanced settings can be provided by using
+
+```yaml
+header:
+  l: Johan Larsson
+  c: Document title
+footer:
+  r: Date
+```
