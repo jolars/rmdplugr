@@ -22,6 +22,9 @@ pdf_presentation <- function(...,
                              more_fontthemes = TRUE,
                              subfigs = TRUE) {
 
+  if (!rmarkdown::pandoc_available())
+    stop("needs pandoc to work")
+
   if (is.null(template))
     template <- system2("pandoc", args = c("-D latex"), stdout = TRUE)
   else

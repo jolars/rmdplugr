@@ -42,6 +42,9 @@ pdf_article <- function(...,
                         csl = NULL,
                         colorlinks = TRUE)
 {
+  if (!rmarkdown::pandoc_available())
+    stop("needs pandoc to work")
+
   pandoc <- find_pandoc()
 
   # get template to modify
