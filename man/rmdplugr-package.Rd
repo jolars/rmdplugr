@@ -6,14 +6,13 @@
 \alias{rmdplugr-package}
 \title{rmdplugr: Plugins for Rmarkdown Formats}
 \description{
-This package adds plugins that transform 'latex' templates
-    used in Rmarkdown formats without relying on custom templates. The goal is 
-    both to restore the
-    style modifications introduced by the default behavior of the
-    'rmarkdown' and 'pandoc' templates, such as
-    smaller margins, paragraph spacing, and compact titles, and also
-    to enable affiliations through the 'latex' 'auhthblk' package and
-    marginal material using either 'scrlayer-page' or 'fancyhdr'.
+Formats for Rmarkdown that undo modifications by
+    'pandoc' and 'rmarkdown' to original 'latex' templates, such as
+    smaller margins, paragraph spacing, and compact titles. In addition, 
+    enhancements such as author blocks with affiliations and
+    headers and footers are introduced. All of this functionality is built 
+    around plugins that modify the default 'pandoc' template without relying on 
+    custom templates.
 }
 \author{
 \strong{Maintainer}: Johan Larsson \email{mail@larssonjohan.com} (0000-0002-4029-5945)
