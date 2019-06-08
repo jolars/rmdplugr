@@ -71,7 +71,9 @@ metadata settings.
 
 # Plugins
 
-## Marginal material
+## `pdf_article()`
+
+### Marginal material
 
 Headers and footers are provided using **fancyhdr** for standard latex 
 document classes and **scrlayer-page** for KOMA-script classes.
@@ -92,3 +94,99 @@ header:
 footer:
   r: Date
 ```
+
+### Author blocks
+
+Support for author blocks is made available through the **authblk** package
+if `author_block = TRUE` in the call to `pdf_article()`.
+This module uses the usual `author` metadata along with `affiliation`.
+There are mutliple ways to use this plugin. If you are a single
+author you can simply do
+
+```yaml
+author: Johan Larsson
+affiliation:
+  - Lund University
+  - Another affiliation
+```
+
+and you'll get an authors block. If you have a more complicated
+list of authors, you can use the following format, where authors
+are coupled to affiliations via the `id` tag.
+
+```yaml
+author:
+  - name: Johan Larsson
+    id: "1,2"
+  - name: Another Author
+    id: 1
+affiliation:
+  - name: Lund University
+    id: 1
+  - name: Another affiliation
+    id: 2
+```
+
+The type of author blocks (and whatever other options
+are available to the **authblk** package)
+can be set using the metadata option `author-options`.
+Moreover, the default settings for fonts of affiliations and
+authors can be set using `affilfont` and `authfont` respectively.
+
+### No indentation
+
+The default in `pdf_article()` is to use indentations rather than paragraph
+spacing. The trouble with this, however, is that
+some of the latex environments will always
+be surrounded by empty lines no matter how the text is formatted in
+the markdown document; this means that the paragraph following such environments
+will always be indented, which is not always wanted.
+
+To circumvent this, the `noindentafter` plugin loads the 
+**noindentafter** package, which makes sure that there is to be no indentation
+after
+
+* itemize,
+* enumerate,
+* description, and
+* code block
+
+environments. You can in fact see the result of this for the list above,
+which would otherwise have required a `\noindent` command before this
+paragraph.
+
+### Subfigs {#subfigs}
+
+The `subfigs` plugin is a very small plugin that simply makes sure
+that the **subfigs** package is loaded. It is needed for subfigs in
+rmarkdown documents.
+
+## `pdf_presentation()`
+
+This output format is based on the `rmarkdown::beamer_presentation()` 
+format. It adds a couple of plugins.
+
+### Frame numbering
+
+To enable frame numbering for your beamer presentations, setting
+`frame_numbering = TRUE` will invoke simple frame numbers at the bottom-right
+of each slide.
+
+### Subfigs
+
+See section \@ref(subfigs).
+
+
+### More font themes
+
+In `beamer_presentation()` you can only choose a single font theme
+for beamer. This simple plugin allows a list of fontthemes, so that you
+can do
+
+```yaml
+fonttheme:
+  - structurebold
+  - professionalfonts
+```
+
+which is sometimes useful.
