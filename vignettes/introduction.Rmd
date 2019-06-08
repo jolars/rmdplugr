@@ -100,7 +100,7 @@ footer:
 Support for author blocks is made available through the **authblk** package
 if `author_block = TRUE` in the call to `pdf_article()`.
 This module uses the usual `author` metadata along with `affiliation`.
-There are mutliple ways to use this plugin. If you are a single
+There are multiple ways to use this plugin. If you are a single
 author you can simply do
 
 ```yaml
