@@ -51,11 +51,14 @@ clip_and_split_at_block <- function(x, from, to = "$endif$", fixed = TRUE) {
 
   start <- grep(from, x, fixed = fixed)[1]
 
-  if (!length(from))
-    warning("pattern ", from, " was not found in template, so cannot insert ",
-            "block")
+  if (is.na(start)) {
+    # fall back to headerincludes if place not found
+    y <- split_at_headerincludes(x)
+  } else {
+    end <- grep(to, x, fixed = fixed)
+    end <- end[which(end - start > 0)[1]]
+    y <- list(top = x[1:(start - 1)], bottom = x[(end + 1):n])
+  }
 
-  end <- grep(to, x, fixed = fixed)
-  end <- end[which(end - start > 0)[1]]
-  list(top = x[1:(start - 1)], bottom = x[(end + 1):n])
+  y
 }

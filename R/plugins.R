@@ -24,13 +24,17 @@ add_marginals <- function(x) {
 add_frame_numbering <- function(x) {
   first <- grep("\\setbeamertemplate", x, fixed = TRUE)[1]
 
-  if (!length(first))
-    warning("no beamer lines in template, so do not know where to insert",
-            "authors block.")
-
   frame_numbering <- "\\setbeamertemplate{footline}[frame number]"
 
-  c(x[1:(first - 1)], frame_numbering, x[first:length(x)])
+  if (is.na(first)) {
+    # fall back to adding at headerincludes if no beamertemplate lines
+    y <- split_at_headerincludes(x)
+    res <- c(y$top, frame_numbering, y$bottom)
+  } else {
+    res <- c(x[1:(first - 1)], frame_numbering, x[first:length(x)])
+  }
+
+  res
 }
 
 add_noindentafter <- function(x) {
