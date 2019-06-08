@@ -9,7 +9,8 @@ deploy:
   script: Rscript -e 'pkgdown::deploy_site_github()'
   skip_cleanup: true
 
-dist:
-  - trusty
-  - xenial
-  - precise
+r_packages:
+  - covr
+
+after_success:
+  - Rscript -e 'covr::codecov()'
