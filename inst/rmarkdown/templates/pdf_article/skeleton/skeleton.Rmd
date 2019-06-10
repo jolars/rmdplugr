@@ -3,9 +3,9 @@ title: "Title"
 subtitle: "Subtitle"
 author:
   - name: "First Author"
-  - name: "Second Author"
-    affiliation: "Affiliation"
+affiliation: "Affiliation"
 date: "`r Sys.Date()`"
+header: true
 output: rmdplugr::pdf_article
 ---
 
