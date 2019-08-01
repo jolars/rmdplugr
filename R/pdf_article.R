@@ -25,10 +25,12 @@
 #' @examples
 #' library(rmarkdown)
 #' library(bookdown)
+#' \dontrun{
 #' rmarkdown::draft("my-article.Rmd",
 #'                  template = "pdf_article",
 #'                  package = "rmdplugr",
 #'                  edit = FALSE)
+#' }
 #' @export
 pdf_article <- function(...,
                         number_sections = TRUE,
