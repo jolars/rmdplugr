@@ -60,6 +60,9 @@ add_more_fontthemes <- function(x) {
 
 add_subfigs <- function(x) {
   y <- split_at_headerincludes(x)
-  c(y$top, "\\usepackage{subfig}", y$bottom)
+
+  add_subfigs <- get_latex_plugin("subfigs")
+
+  c(y$top, add_subfigs, y$bottom)
 }
 
