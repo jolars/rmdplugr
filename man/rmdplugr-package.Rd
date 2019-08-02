@@ -6,7 +6,7 @@
 \alias{rmdplugr-package}
 \title{rmdplugr: Plugins for Rmarkdown Formats}
 \description{
-Formats for Rmarkdown that undo modifications by
+Formats for R Markdown that undo modifications by
     'pandoc' and 'rmarkdown' to original 'latex' templates, such as
     smaller margins, paragraph spacing, and compact titles. In addition, 
     enhancements such as author blocks with affiliations and
