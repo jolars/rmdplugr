@@ -1,13 +1,13 @@
 Package: rmdplugr
 Title: Plugins for Rmarkdown Formats
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: 
     person(given = "Johan",
            family = "Larsson",
            role = c("aut", "cre"),
            email = "johanlarsson@outlook.com",
            comment = c(ORCID = "0000-0002-4029-5945"))
-Description: Formats for Rmarkdown that undo modifications by
+Description: Formats for R Markdown that undo modifications by
     'pandoc' and 'rmarkdown' to original 'latex' templates, such as
     smaller margins, paragraph spacing, and compact titles. In addition, 
     enhancements such as author blocks with affiliations and
