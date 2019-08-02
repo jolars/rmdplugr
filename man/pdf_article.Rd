@@ -51,10 +51,10 @@ template
 \examples{
 library(rmarkdown)
 library(bookdown)
-\dontrun{
-rmarkdown::draft("my-article.Rmd",
+tmp <- file.path(tempdir(), "my-article.Rmd")
+rmarkdown::draft(tmp,
                  template = "pdf_article",
                  package = "rmdplugr",
                  edit = FALSE)
-}
+unlink(tmp)
 }
