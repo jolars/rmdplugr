@@ -1,6 +1,6 @@
 # rmdplugr 0.4.0
 
-* Wording of R Markdown was changed in the title in the DESCRIPTION
+* Wording of R Markdown was changed in the title in the DESCRIPTION.
 
 # rmdplugr 0.3.0
 
