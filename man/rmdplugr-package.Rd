@@ -4,7 +4,7 @@
 \name{rmdplugr-package}
 \alias{rmdplugr}
 \alias{rmdplugr-package}
-\title{rmdplugr: Plugins for Rmarkdown Formats}
+\title{rmdplugr: Plugins for R Markdown Formats}
 \description{
 Formats for R Markdown that undo modifications by
     'pandoc' and 'rmarkdown' to original 'latex' templates, such as

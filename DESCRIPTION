@@ -1,6 +1,6 @@
 Package: rmdplugr
-Title: Plugins for Rmarkdown Formats
-Version: 0.3.0
+Title: Plugins for R Markdown Formats
+Version: 0.4.0
 Authors@R: 
     person(given = "Johan",
            family = "Larsson",

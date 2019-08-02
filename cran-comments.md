@@ -27,3 +27,10 @@ This is the second resubmission of this package. In this version I have:
 direct output to a temporary file.
 * Changed "Rmarkdown" to "R Markdown" in the DESCRIPTION. To clarify,
 I mean the format and not the package in this particular sentence.
+
+## Third resubmission
+
+This is the third resubmission of this package. In this version I have:
+
+* Changed "Rmarkdown" to "R Markdown" in the title of the package in
+the DESCRIPTION.
