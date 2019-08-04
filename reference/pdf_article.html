@@ -66,7 +66,7 @@ template" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rmdplugr</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -195,10 +195,11 @@ colored?</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>rmarkdown</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>bookdown</span>)
-<span class='kw pkg'>rmarkdown</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/rmarkdown/topics/draft'>draft</a></span>(<span class='st'>"my-article.Rmd"</span>,
+<span class='no'>tmp</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/file.path'>file.path</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/tempfile'>tempdir</a></span>(), <span class='st'>"my-article.Rmd"</span>)
+<span class='kw pkg'>rmarkdown</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/rmarkdown/topics/draft'>draft</a></span>(<span class='no'>tmp</span>,
                  <span class='kw'>template</span> <span class='kw'>=</span> <span class='st'>"pdf_article"</span>,
                  <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"rmdplugr"</span>,
-                 <span class='kw'>edit</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in rmarkdown::draft("my-article.Rmd", template = "pdf_article",     package = "rmdplugr", edit = FALSE): The template 'pdf_article' was not found in the rmdplugr package</span></div></pre>
+                 <span class='kw'>edit</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in rmarkdown::draft(tmp, template = "pdf_article", package = "rmdplugr",     edit = FALSE): The template 'pdf_article' was not found in the rmdplugr package</span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/unlink'>unlink</a></span>(<span class='no'>tmp</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
