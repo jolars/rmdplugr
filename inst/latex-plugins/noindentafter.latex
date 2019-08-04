@@ -5,4 +5,5 @@
   \NoIndentAfterEnv{enumerate}
   \NoIndentAfterEnv{description}
   \NoIndentAfterEnv{Shaded}
+  \NoIndentAfterEnv{center}
 }{}
