@@ -6,4 +6,5 @@
   \NoIndentAfterEnv{description}
   \NoIndentAfterEnv{Shaded}
   \NoIndentAfterEnv{center}
+  \NoIndentAfterEnv{verbatim}
 }{}

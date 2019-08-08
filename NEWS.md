@@ -2,7 +2,7 @@
 
 ## Small changes
 
-* Added center environment to noindentafter latex plugin.
+* Added center and verbatim environments to noindentafter latex plugin.
 
 # rmdplugr 0.4.0
 
