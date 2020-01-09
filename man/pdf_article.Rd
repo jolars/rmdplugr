@@ -5,10 +5,19 @@
 \title{Rmarkdown template for an augmented version of the basic pandoc latex
 template}
 \usage{
-pdf_article(..., number_sections = TRUE,
-  md_extensions = c("-autolink_bare_uris"), indent = TRUE,
-  marginals = TRUE, author_block = TRUE, noindentafter = TRUE,
-  subfigs = TRUE, template = NULL, csl = NULL, colorlinks = TRUE)
+pdf_article(
+  ...,
+  number_sections = TRUE,
+  md_extensions = c("-autolink_bare_uris"),
+  indent = TRUE,
+  marginals = TRUE,
+  author_block = TRUE,
+  noindentafter = TRUE,
+  subfigs = TRUE,
+  template = NULL,
+  csl = NULL,
+  colorlinks = TRUE
+)
 }
 \arguments{
 \item{...}{arguments passed down to [bookdown::pdf_document2()]}

@@ -4,9 +4,14 @@
 \alias{pdf_presentation}
 \title{PDF presentation template}
 \usage{
-pdf_presentation(..., template = NULL, frame_numbering = TRUE,
-  beamer_customization = TRUE, more_fontthemes = TRUE,
-  subfigs = TRUE)
+pdf_presentation(
+  ...,
+  template = NULL,
+  frame_numbering = TRUE,
+  beamer_customization = TRUE,
+  more_fontthemes = TRUE,
+  subfigs = TRUE
+)
 }
 \arguments{
 \item{...}{arguments passed on to [rmarkdown::beamer_presentation()]}
