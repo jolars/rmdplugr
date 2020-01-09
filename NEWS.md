@@ -1,4 +1,4 @@
-# rmdplugr (development version)
+# rmdplugr 0.4.1
 
 ## Small changes
 
