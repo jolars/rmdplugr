@@ -1,16 +1,15 @@
 add_author_block <- function(x) {
-  from <- grep("$if(author)$", x, fixed = TRUE)
+  where <- grep("\\author", x, fixed = TRUE)
 
-  if (!length(from))
+  if (!length(where))
     warning("no author line in template, so do not know where to insert",
             "authors block.")
 
-  end <- grep("$endif$", x, fixed = TRUE)
-  to <- end[which(end - from > 0)[1]]
-
   author_block <- get_latex_plugin("author-block")
 
-  c(x[1:(from - 1)], author_block, x[(to+1):length(x)])
+  c(x[1:(where - 1)],
+    author_block,
+    x[(where + 1):length(x)])
 }
 
 add_marginals <- function(x) {

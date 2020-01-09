@@ -4,6 +4,11 @@
 
 * Added center and verbatim environments to noindentafter latex plugin.
 
+## Bug fixes
+
+* Fixed error in author block resulting from new version of pandoc latex
+  template. (Thanks Brian Ripley.)
+
 # rmdplugr 0.4.0
 
 * Wording of R Markdown was changed in the title in the DESCRIPTION.
